@@ -1,0 +1,33 @@
+language: cpp
+
+matrix:
+  include:
+    - os: linux
+      dist: bionic
+      compiler: gcc
+
+install:
+  - |
+    WORK_ROOT=$(pwd)
+    git clone --depth=1 https://github.com/google/googletest.git
+    cd googletest
+    mkdir -p build
+    cd build
+    cmake ..
+    make
+    sudo make install
+    cd ${WORK_ROOT}
+
+script:
+  - mkdir -p build
+  - cd build
+  - cmake ..
+  - make
+  - make test
+
+notifications:
+  email:
+    recipients:
+      - daijunkai@foxmail.com
+    on_success: never
+    on_failure: always
