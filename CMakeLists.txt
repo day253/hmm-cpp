@@ -9,10 +9,10 @@ enable_testing()
 find_package(Threads REQUIRED)
 find_package(GTest REQUIRED)
 
-include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_SOURCE_DIR}/src)
 include_directories(${GTEST_INCLUDE_DIR})
 
-aux_source_directory(${CMAKE_SOURCE_DIR}/src EXECUTABLE)
+aux_source_directory(${CMAKE_SOURCE_DIR}/test EXECUTABLE)
 foreach(T_FILE_NAME ${EXECUTABLE})
     get_filename_component(EXECUTABLE_NAME ${T_FILE_NAME} NAME_WE)
     add_executable(${EXECUTABLE_NAME} ${T_FILE_NAME})
