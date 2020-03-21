@@ -58,3 +58,7 @@ ulimit -c unlimited
 
 sudo sysctl -w kernel.core_pattern=core.%e.%p
 ```
+
+## 参考文档
+
+[UMDHMM](https://github.com/palanceli/UMDHMM)
